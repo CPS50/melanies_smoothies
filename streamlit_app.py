@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark.context import get_active_session # only work with StreamLit in Snowflake so need to be removed...
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -21,7 +21,9 @@ import streamlit as st
 name_on_order = st.text_input('Name on Smoothie:')
 st.write("The name on on your Smoothie will be:", name_on_order)
 
-session = get_active_session()
+#session = get_active_session() # only work with StreamLit in Snowflake so need to be removed...
+cnx = st.connection("snowflake")
+session = cn.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 # shows the dataframe contents on the page.
