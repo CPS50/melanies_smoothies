@@ -58,4 +58,4 @@ if ingredients_list:
 import requests
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 #st.text(smoothiefroot_response.json()) #Expose/Show the JSON Data Inside the Response Object
-sf_df = st.dataframe(data=smoothiefroot_respne.json(), use_container_width=True) #display JSON data in a Dataframe
+sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True) #display JSON data in a Dataframe
