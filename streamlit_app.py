@@ -22,8 +22,8 @@ name_on_order = st.text_input('Name on Smoothie:')
 st.write("The name on on your Smoothie will be:", name_on_order)
 
 #session = get_active_session() # only work with StreamLit in Snowflake so need to be removed...
-cn = st.connection("snowflake")
-session = cn.session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 # shows the dataframe contents on the page.
